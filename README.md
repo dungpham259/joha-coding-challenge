@@ -42,7 +42,7 @@ Go to `/packages/rest_client` and execute the following command in terminal to g
 flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
-**Whenever change freezed file, assets, api**
+**Whenever change freezed file, api**
 
 Run command
 ```cmd
