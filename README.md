@@ -1,16 +1,67 @@
-# jaho_challenge
 
-A new Flutter project.
+# Mini Test Assignment - Flutter Developer
+
+A boilerplate project created in flutter using Bloc, Retrofit. Depend on code generation.
+
+Some packages: 
+  - [Freezed](https://pub.dev/packages/freezed)
+  - [Flutter Bloc](https://pub.dev/packages/flutter_bloc)
+  - [Flutter gen](https://pub.dev/packages/flutter_gen)
+  - [Retrofit](https://pub.dev/packages/retrofit)
+  - [Dio](https://pub.dev/packages/retrofit)
+  - [Go router](https://pub.dev/packages/go_router)
+  - [Dependency Injection](https://github.com/fluttercommunity/get_it)
+  - [Logger](https://pub.dev/packages/logger)
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## How to Use 
+**Step 1:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Fork, download or clone this repo by using the link below:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+https://github.com/dungpham259/joha-coding-challenge
+```
+
+**Step 2:**
+Go to project root and execute the following command in terminal to get the required dependencies and freezed, flutter gen: 
+
+```cmd
+flutter pub get
+flutter pub run intl_utils:generate
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+**Step 3:**
+Go to `/packages/rest_client` and execute the following command in terminal to generate model and api client: 
+
+```cmd
+flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+**Whenever change freezed file, assets, api**
+
+Run command
+```cmd
+flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+## Folder structure
+```
+flutter_boilerplate/
+|- lib/
+  |- config/                  (flavor config)
+  |- data/                    (repository)
+  |- features/                (features page)
+  |- injector/                (dependencies injector)
+  |- router/                  (routing)
+  |- services/                (app services)
+|- packages/
+  |- rest_client/             (api client)
+|- tests/
+  |- app_test/                (mock dependencies)
+
+```
