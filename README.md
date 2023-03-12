@@ -51,7 +51,7 @@ flutter pub get && flutter pub run build_runner build --delete-conflicting-outpu
 
 ## Folder structure
 ```
-flutter_boilerplate/
+jaho_coding_challenge/
 |- lib/
   |- config/                  (flavor config)
   |- data/                    (repository)
