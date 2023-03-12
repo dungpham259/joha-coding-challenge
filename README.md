@@ -62,6 +62,6 @@ jaho_coding_challenge/
 |- packages/
   |- rest_client/             (api client)
 |- tests/
-  |- app_test/                (mock dependencies)
+
 
 ```
