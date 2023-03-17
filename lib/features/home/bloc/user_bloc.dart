@@ -31,22 +31,30 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   ) async {
     try {
       if (state.hasReachedMax) return;
-      if (state.status == UIStatus.initial) {
-        final UserResponse userResponse = await _userRepository.getUserList();
-        return emit(state.copyWith(
-          users: userResponse.data ?? [],
-          currentPage: userResponse.page ?? 1,
-          hasReachedMax: false,
-          status: UIStatus.loadSuccess,
-        ));
+      if (state.status.isInitial) {
+        final userResponse = await _userRepository.getUserList();
+        return emit(
+          state.copyWith(
+            users: userResponse.data ?? [],
+            currentPage: userResponse.page ?? 1,
+            hasReachedMax: false,
+            status: UIStatus.loadSuccess,
+          ),
+        );
       }
+      // emit(
+      //   state.copyWith(
+      //     status: UIStatus.loadmore,
+      //   ),
+      // );
+
       final currentPage = state.currentPage;
-      var nextPage = currentPage + 1;
-      final UserResponse userResponse = await _userRepository.getUserList(
+      final nextPage = currentPage + 1;
+      final userResponse = await _userRepository.getUserList(
         page: nextPage,
       );
 
-      final List<User> users = userResponse.data ?? [];
+      final users = userResponse.data ?? [];
       if (users.isEmpty) {
         return emit(
           state.copyWith(
@@ -54,11 +62,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           ),
         );
       } else {
-        return emit(state.copyWith(
-          users: List.of(state.users)..addAll(users),
-          currentPage: userResponse.page ?? 1,
-          hasReachedMax: false,
-        ));
+        return emit(
+          state.copyWith(
+            users: List.of(state.users)..addAll(users),
+            currentPage: userResponse.page ?? 1,
+            hasReachedMax: userResponse.page == userResponse.totalPages,
+          ),
+        );
       }
     } catch (e, s) {
       _log.e('message', e, s);
@@ -75,7 +85,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     Emitter<UserState> emit,
   ) async {
     emit(const UserState());
-    await Future.delayed(const Duration(seconds: 1));
+    await Future<void>.delayed(const Duration(seconds: 1));
     add(const UserLoad());
   }
 }

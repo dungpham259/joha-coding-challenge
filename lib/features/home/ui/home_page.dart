@@ -13,8 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        final userBloc = getIt<UserBloc>();
-        userBloc.add(const UserLoad());
+        final userBloc = getIt<UserBloc>()..add(const UserLoad());
         return userBloc;
       },
       child: const HomeView(),
@@ -59,7 +58,8 @@ class _HomeViewState extends State<HomeView> {
         actions: [
           IconButton(
             icon: Icon(
-                _viewType == ViewType.list ? Icons.grid_on : Icons.view_list),
+              _viewType == ViewType.list ? Icons.grid_on : Icons.view_list,
+            ),
             onPressed: () {
               if (_viewType == ViewType.list) {
                 _viewType = ViewType.grid;
@@ -78,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
               child: CircularProgressIndicator(),
             );
           } else if (state.status == UIStatus.loadSuccess) {
-            var users = state.users;
+            final users = state.users;
 
             return RefreshIndicator(
               onRefresh: () async {
@@ -96,16 +96,12 @@ class _HomeViewState extends State<HomeView> {
                         crossAxisSpacing: 5,
                         mainAxisSpacing: 100,
                         crossAxisCount: 2,
-                        childAspectRatio: 1,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
                           return buildUserGridTile(context, state, index);
                         },
                         childCount: users.length,
-                        addAutomaticKeepAlives: true,
-                        addRepaintBoundaries: true,
-                        addSemanticIndexes: true,
                       ),
                     ),
                   ] else ...[
@@ -115,18 +111,16 @@ class _HomeViewState extends State<HomeView> {
                           return buildUserListView(context, state, index);
                         },
                         childCount: users.length,
-                        addAutomaticKeepAlives: true,
-                        addRepaintBoundaries: true,
-                        addSemanticIndexes: true,
                       ),
                     ),
                   ],
                   if (!state.hasReachedMax)
                     const SliverToBoxAdapter(
                       child: SizedBox(
-                          height: 40,
-                          width: 40,
-                          child: Center(child: CircularProgressIndicator())),
+                        height: 40,
+                        width: 40,
+                        child: Center(child: CircularProgressIndicator()),
+                      ),
                     ),
                 ],
               ),

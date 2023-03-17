@@ -1,0 +1,196 @@
+{
+  "editor.guides.bracketPairs": "active",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 120,
+  "editor.renderWhitespace": "all",
+  "dart.lineLength": 120,
+  "editor.rulers": [
+    {
+      "column": 120,
+      "color": "#ff333388",
+    },
+  ],
+  
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    // Remove .fvm files from search
+    "**/.fvm": true,
+    "**/.git": true,
+  },
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "files.associations": {
+    "**/.azure-pipelines/*.yaml": "azure-pipelines"
+  },
+  "[azure-pipelines]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "dart.renameFilesWithClasses": "always",
+  "[dart]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true,
+    },
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  // "dartimportsorter.sortOnSave": true,
+  "dart_data_class_generator.useEquatable": true,
+  "dart.analysisExcludedFolders": [
+    ".vscode",
+    ".mason",
+    "bricks",
+  ],
+  "dart.buildRunnerAdditionalArgs": [
+    "--delete-conflicting-outputs"
+  ],
+  // "terminal.integrated.defaultProfile.osx": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": [
+        /// settings to load .bashrc from workspaceFolder in vscode only
+        "--rcfile",
+        "${workspaceFolder}/.bashrc",
+        "-l",
+      ],
+    },
+    "zsh": {
+      "path": "/bin/zsh",
+    }
+  },
+  "terminal.integrated.env.osx": {
+    "BASHRC_CONFIG_DIR": "${workspaceFolder}",
+    // "ZDOTDIR": "${workspaceFolder}/.zshrc",
+  },
+  "terminal.integrated.env.windows": {
+    "BASHRC_CONFIG_DIR": "${workspaceFolder}"
+  },
+  // "terminal.integrated.enablePersistentSessions": false,
+  // "terminal.integrated.persistentSessionReviveProcess": "onExit",
+  // "restoreTerminals.runOnStartup": false,
+  "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "ios",
+          "commands": [
+            "cd ios",
+          ],
+          "shouldRunCommands": true
+        },
+        {
+          "name": "android",
+          "commands": [
+            "cd android",
+          ],
+          "shouldRunCommands": true
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Root Workspace",
+          "commands": []
+        },
+      ]
+    },
+  ],
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.dart_tool": true,
+    "**/.github": true,
+    "**/.vscode": true,
+    "**/.fvm": false,
+    "**/.packages": true,
+    "**/coverage": true,
+    "**/.idea": true,
+    "**/.metadata": true,
+    "**/.npmrc": true,
+    "**/.firebase": true,
+    "**/.firebaserc": true,
+    "**/firebase.json": true,
+    "**/.mason": true,
+    "**/fastlane": false
+  },
+  "yaml.format.singleQuote": true,
+  // "dart.env": {
+  //   "CHROME_EXECUTABLE": "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
+  // },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "platforms": "android, ios",
+    "Fastfile": "Fastfile, fastlane_config.yaml",
+    "firebase.json": "firebase.json, firestore.rules, .firebaserc",
+    "pubspec.yaml": "pubspec.lock, pubspec_overrides.yaml, .packages, .flutter-plugins, .flutter-plugins-dependencies, .metadata, .packages, build.yaml, analysis_options.yaml, all_lint_rules.yaml, l10n.yaml, melos.yaml, mason.yaml, .gitlab-ci.yml, mason-lock.json, r13n.yaml",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*, .gitconfig",
+    "README.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme.*, README_android.md, README_ios.md, security.md, sponsors.md",
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+    "define_*.yaml": "define_$(capture).yaml, *.$(capture)",
+    "Gemfile": "Gemfile.lock",
+  },
+  "dart.runPubGetOnPubspecChanges": "prompt",
+  "explorerExclude.backup": {},
+  "foam.graph.style": {
+    // https://foambubble.github.io/foam/user/features/graph-visualization
+
+  },
+  "foam.files.ignore": [
+    "**/.vscode/**/*",
+    "**/_layouts/**/*",
+    "**/_site/**/*",
+    "**/node_modules/**/*",
+    "**/packages/**/*",
+    "**/ios/**/*",
+    "**/android/**/*"
+  ],
+  "taskExplorer.groupSeparator": ":",
+  "markdown-preview-enhanced.mermaidTheme": "forest",
+  "markdown-mermaid.lightModeTheme": "neutral",
+  "taskExplorer.enableAnt": false,
+  "taskExplorer.enableAppPublisher": false,
+  "taskExplorer.enableGrunt": false,
+  "taskExplorer.enableGulp": false,
+  "taskExplorer.enableMaven": false,
+  "taskExplorer.enableMake": false,
+  "taskExplorer.enableNpm": false,
+  "taskExplorer.enableNsis": false,
+  "taskExplorer.enablePerl": false,
+  "taskExplorer.enablePowershell": false,
+  "taskExplorer.enablePython": false,
+  "taskExplorer.enableRuby": false,
+  "taskExplorer.enableTsc": false,
+  "taskExplorer.enableBatch": false,
+  "taskExplorer.enableGradle": false,
+  "taskExplorer.enableComposer": false,
+  // "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+}

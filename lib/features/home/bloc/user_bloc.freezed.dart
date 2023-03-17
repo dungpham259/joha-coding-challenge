@@ -278,7 +278,7 @@ abstract class UserRefresh implements UserEvent {
 
 /// @nodoc
 mixin _$UserState {
-  UIStatus? get status => throw _privateConstructorUsedError;
+  UIStatus get status => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   List<User> get users => throw _privateConstructorUsedError;
@@ -296,7 +296,7 @@ abstract class $UserStateCopyWith<$Res> {
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
   $Res call(
-      {UIStatus? status,
+      {UIStatus status,
       bool hasReachedMax,
       int currentPage,
       List<User> users,
@@ -317,7 +317,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
     Object? hasReachedMax = null,
     Object? currentPage = null,
     Object? users = null,
@@ -325,10 +325,10 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? successMsg = freezed,
   }) {
     return _then(_value.copyWith(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UIStatus?,
+              as UIStatus,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -361,7 +361,7 @@ abstract class _$$_UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {UIStatus? status,
+      {UIStatus status,
       bool hasReachedMax,
       int currentPage,
       List<User> users,
@@ -380,7 +380,7 @@ class __$$_UserStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
     Object? hasReachedMax = null,
     Object? currentPage = null,
     Object? users = null,
@@ -388,10 +388,10 @@ class __$$_UserStateCopyWithImpl<$Res>
     Object? successMsg = freezed,
   }) {
     return _then(_$_UserState(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UIStatus?,
+              as UIStatus,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ class _$_UserState implements _UserState {
 
   @override
   @JsonKey()
-  final UIStatus? status;
+  final UIStatus status;
   @override
   @JsonKey()
   final bool hasReachedMax;
@@ -492,7 +492,7 @@ class _$_UserState implements _UserState {
 
 abstract class _UserState implements UserState {
   const factory _UserState(
-      {final UIStatus? status,
+      {final UIStatus status,
       final bool hasReachedMax,
       final int currentPage,
       final List<User> users,
@@ -500,7 +500,7 @@ abstract class _UserState implements UserState {
       final String? successMsg}) = _$_UserState;
 
   @override
-  UIStatus? get status;
+  UIStatus get status;
   @override
   bool get hasReachedMax;
   @override

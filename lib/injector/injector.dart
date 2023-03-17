@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'injector.config.dart';
+import 'package:jaho_coding_challenge/injector/injector.config.dart';
 
 final getIt = GetIt.instance;
 

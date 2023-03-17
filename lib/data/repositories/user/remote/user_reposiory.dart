@@ -1,5 +1,5 @@
 import 'package:rest_client/rest_client.dart';
 
-abstract class UserRepository {
+mixin UserRepository {
   Future<UserResponse> getUserList({int? page});
 }

@@ -13,7 +13,7 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<UserResponse> getUserList({int? page}) async {
-    return await _userApiClient.getUserList(page: page).catchError(
+    return _userApiClient.getUserList(page: page).catchError(
           ExceptionHandler.handleException,
         );
   }

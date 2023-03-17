@@ -2,7 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CirleAvatar extends StatelessWidget {
-  const CirleAvatar({super.key, required this.avatarUrl});
+  const CirleAvatar({
+    required this.avatarUrl,
+    super.key,
+  });
 
   final String avatarUrl;
   @override
