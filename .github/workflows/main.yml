@@ -1,0 +1,47 @@
+name: Flutter CI
+
+on:
+  push:
+    branches:
+    - develop-ci
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2.4.0
+      with:
+        channel: 'stable'
+        flutter-version: '2.10.3'
+    - run: flutter pub get
+    - run: flutter build apk
+
+    - name: Upload to artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-app-profile
+        path: build/app/outputs/flutter-apk/app-profile.apk
+    
+    - name: Upload to gdrive
+      uses: adityak74/google-drive-upload-git-action@main
+      with:
+        credentials: ${{ secrets.GDRIVE_SECRET }}
+        filename: "build/app/outputs/flutter-apk/app-profile.apk"
+        folderId: ${{ secrets.GDRIVE_CICD_FOLDER_ID }}
+        name: "CICD-TESTING-profile.apk"
+        overwrite: "true"
+        mimetype: application/vnd.android.package-archive
+  SendingApk:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Sending Mail
+        uses: fjogeleit/http-request-action@v1.9.2
+        with:
+          url: "https://cicdmailer.onrender.com/sendMail"
+          method: "POST"
+          data: '{"companyLogoUrl": "https://logowik.com/content/uploads/images/flutter5786.jpg","appLink": "https://drive.google.com/drive/u/1/folders/12zQnhnj6-T5wKr1z9a-kzupIrjGEMNm_","subject": "SUBJECT OF MAIL","to": ["dungpa259@gmail.com", "haimaudoimat@gmail.com"]}'
+
+    
