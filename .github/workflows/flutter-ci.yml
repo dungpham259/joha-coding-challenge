@@ -30,7 +30,7 @@ jobs:
       uses: adityak74/google-drive-upload-git-action@main
       with:
         credentials: ${{ secrets.GDRIVE_SECRET }}
-        filename: "build/app/outputs/flutter-apk/app-profile.apk"
+        filename: "build/app/outputs/flutter-apk/app-release.apk"
         folderId: ${{ secrets.GDRIVE_CICD_FOLDER_ID }}
         name: "CICD-TESTING-profile.apk"
         overwrite: "true"
