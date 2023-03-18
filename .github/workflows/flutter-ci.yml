@@ -24,7 +24,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: test-app-profile
-        path: build/app/outputs/flutter-apk/app-profile.apk
+        path: build/app/outputs/flutter-apk/app-release.apk
     
     - name: Upload to gdrive
       uses: adityak74/google-drive-upload-git-action@main
