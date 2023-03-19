@@ -39,9 +39,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Sending Mail
-        uses: fjogeleit/http-request-action@v1.9.2
+        uses: fjogeleit/http-request-action@v1
         with:
           url: "https://cicdmailer.onrender.com/sendMail"
           method: "POST"
