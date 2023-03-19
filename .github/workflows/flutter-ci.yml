@@ -45,6 +45,6 @@ jobs:
         with:
           url: "https://cicdmailer.onrender.com/sendMail"
           method: "POST"
-          data: '{"companyLogoUrl": "https://logowik.com/content/uploads/images/flutter5786.jpg","appLink": "https://drive.google.com/drive/u/1/folders/12zQnhnj6-T5wKr1z9a-kzupIrjGEMNm_","subject": "SUBJECT OF MAIL","to": ["dungpa259@gmail.com", "haimaudoimat@gmail.com"]}'
+          data: '{"companyLogoUrl": "https://logowik.com/content/uploads/images/flutter5786.jpg","appLink": "https://drive.google.com/drive/u/1/folders/12zQnhnj6-T5wKr1z9a-kzupIrjGEMNm_","subject": "SUBJECT OF MAIL","to": ["haimaudoimat@gmail.com"]}'
 
     
